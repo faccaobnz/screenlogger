@@ -1,0 +1,22 @@
+# by paulxer 
+
+import win32api
+import win32con
+import ImageGrab
+import time
+
+numero = 0
+ext = ".a" 
+pasta = "qualquer/"
+espera = 0.5
+numero_prints = 6000
+
+for i in range(numero_prints):
+  win32api.keybd_event(win32con.VK_SNAPSHOT, 0)
+  time.sleep(espera)
+  im = ImageGrab.grabclipboard()
+  time.sleep(espera)  
+  im.save(pasta+str(numero)+ext, "JPEG")
+  time.sleep(espera) 
+  numero += 1
+  time.sleep(espera)  
